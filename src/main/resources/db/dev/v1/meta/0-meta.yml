@@ -1,0 +1,4 @@
+databaseChangeLog:
+  -  include:
+       file: "2026-08-30-create-table-user.yml"
+       relativeToChangelogFile: true

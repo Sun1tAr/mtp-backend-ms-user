@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mtp-backend-ms-user
+  liquibase:
+    enabled: ${LIQUIBASE_ENABLED:true}
+    change-log: db/dev/changelog.yml
+    clear-checksums: true
+    default-schema: ${DB_SCHEME_NAME:mtp_user}
+    liquibase-schema: ${DB_SCHEME_NAME:mtp_user}
+    parameters: {
+      default-schema: "${spring.liquibase.default-schema}",
+      schema: "${spring.liquibase.liquibase-schema}"
+    }
+  jpa:
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEME_NAME:mtp_user}
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    database: postgresql
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_URL:core.netbird.selfhosted}:${POSTGRES_PORT:5432}/${POSTGRES_DB_NAME:mtp_dev}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:masterpass}
+    driver-class-name: org.postgresql.Driver
+  level:
+    b4e.ru.mtp.backend: ${LOGGING_LEVEL:debug}
+
+logging:
+  charset:
+    console: UTF-8
+    file: UTF-8

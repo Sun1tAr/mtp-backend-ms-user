@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2026-08-30-create-table-user
+      author: dtuev
+      changes:
+        - createTable:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: login
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar
