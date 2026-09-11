@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
   application:
@@ -23,7 +23,7 @@ spring:
       ddl-auto: none
     database: postgresql
   datasource:
-    url: jdbc:postgresql://${POSTGRES_URL:core.netbird.selfhosted}:${POSTGRES_PORT:5432}/${POSTGRES_DB_NAME:mtp_dev}
+    url: jdbc:postgresql://${POSTGRES_URL:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB_NAME:mtp_dev}
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:masterpass}
     driver-class-name: org.postgresql.Driver

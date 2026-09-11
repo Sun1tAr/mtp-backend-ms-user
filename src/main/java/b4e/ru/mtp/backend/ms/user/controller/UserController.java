@@ -1,6 +1,7 @@
 package b4e.ru.mtp.backend.ms.user.controller;
 
 import b4e.ru.mtp.backend.commons.dto.user.CreateUserRequest;
+import b4e.ru.mtp.backend.commons.dto.user.CreateUserResponse;
 import b4e.ru.mtp.backend.commons.dto.user.GetUserResponse;
 import b4e.ru.mtp.backend.ms.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,16 +21,24 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/create")
+    @PostMapping("/new")
     public ResponseEntity<?> createUser(@RequestBody CreateUserRequest request) {
-        userService.createUser(request);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        CreateUserResponse response = userService.createUser(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<?> getUser(@RequestParam long id) {
+    @GetMapping("/by-login")
+    public ResponseEntity<?> getUserByLogin(@RequestParam String login) {
+        GetUserResponse user = userService.findUserByLogin(login);
+        return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping("/by-id")
+    public ResponseEntity<?> getUserById(@RequestParam Long id) {
         GetUserResponse user = userService.findUserById(id);
         return ResponseEntity.ok().body(user);
     }
+
+
 
 }
