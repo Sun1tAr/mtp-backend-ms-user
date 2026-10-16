@@ -1,11 +1,12 @@
 package b4e.ru.mtp.backend.ms.user.service.impl;
 
-import b4e.ru.mtp.backend.commons.dto.user.CreateUserRequest;
-import b4e.ru.mtp.backend.commons.dto.user.CreateUserResponse;
-import b4e.ru.mtp.backend.commons.dto.user.GetUserResponse;
-import b4e.ru.mtp.backend.commons.exception.MtpErrorCode;
-import b4e.ru.mtp.backend.commons.exception.MtpException;
+
+import b4e.ru.mtp.backend.ms.user.api.dto.CreateUserRequest;
+import b4e.ru.mtp.backend.ms.user.api.dto.CreateUserResponse;
+import b4e.ru.mtp.backend.ms.user.api.dto.GetUserResponse;
 import b4e.ru.mtp.backend.ms.user.entity.UserEntity;
+import b4e.ru.mtp.backend.ms.user.exception.MtpErrorCode;
+import b4e.ru.mtp.backend.ms.user.exception.MtpException;
 import b4e.ru.mtp.backend.ms.user.repository.UserRepository;
 import b4e.ru.mtp.backend.ms.user.service.UserService;
 import jakarta.transaction.Transactional;
